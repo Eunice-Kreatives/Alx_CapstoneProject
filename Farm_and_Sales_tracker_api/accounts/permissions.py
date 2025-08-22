@@ -1,4 +1,4 @@
-from rest_framework import permissions # pyright: ignore[reportMissingImports]
+from rest_framework import permissions 
 
 
 class IsAdminOrFarmer(permissions.BasePermission):
@@ -9,7 +9,6 @@ class IsAdminOrFarmer(permissions.BasePermission):
         when this is combined with other permissions like IsAuthenticated.
         """
         def has_permission(self, request, view):
-            # Allow GET, HEAD, OPTIONS requests (read-only) for anyone authenticated
             if request.method in permissions.SAFE_METHODS:
                 return request.user and request.user.is_authenticated
 

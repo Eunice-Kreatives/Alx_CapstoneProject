@@ -1,4 +1,4 @@
-from rest_framework import serializers # pyright: ignore[reportMissingImports]
+from rest_framework import serializers 
 from .models import Sale
 
 class SaleSerializer(serializers.ModelSerializer):
@@ -7,11 +7,10 @@ class SaleSerializer(serializers.ModelSerializer):
     It displays the product's name, calculates the total sale amount automatically,
     and sets the sale date and total amount as read-only fields.
     """
-        product_name = serializers.ReadOnlyField(source='product.name') # Display product name instead of product ID
+        product_name = serializers.ReadOnlyField(source='product.name') 
         total_sale_amount = serializers.DecimalField(max_digits=10, decimal_places=2, read_only=True)
 
         class Meta:
             model = Sale
             fields = ['id', 'product', 'product_name', 'quantity_sold', 'price_per_unit', 'total_sale_amount', 'date_sold']
-            # 'date_sold' is auto-generated, 'total_sale_amount' is calculated
             read_only_fields = ['date_sold', 'total_sale_amount']

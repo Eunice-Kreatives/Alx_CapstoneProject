@@ -1,5 +1,5 @@
 # serializers.py for accounts app
-from rest_framework import serializers # pyright: ignore[reportMissingImports]
+from rest_framework import serializers 
 from .models import CustomUser
 
 class UserSerializer(serializers.ModelSerializer):
