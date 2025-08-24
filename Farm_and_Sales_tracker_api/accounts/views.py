@@ -8,6 +8,10 @@ from .serializers import UserSerializer
 class UserViewSet(viewsets.ModelViewSet):
     queryset = CustomUser.objects.all().order_by('username')
     serializer_class = UserSerializer
+
+    def get_serializer_context(self):
+        return {'request': self.request}
+
     
     def get_persmissions(self):
         """
