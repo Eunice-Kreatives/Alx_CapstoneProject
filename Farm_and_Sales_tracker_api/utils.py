@@ -15,8 +15,8 @@ def custom_exception_handler(exc, context):
                  response.data['detail'] = "Access denied. You do not have the necessary permissions."
 
         
-    else:
-        print(f"Unhandled exception: {exc}")
+    else:  
+        print(f"Unhandled exception: {exc}")  
         response = Response(
             {'detail': 'An unexpected server error occurred.'},
             status=status.HTTP_500_INTERNAL_SERVER_ERROR
